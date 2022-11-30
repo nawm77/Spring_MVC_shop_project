@@ -2,6 +2,7 @@ package com.zulvit.userDatabaseSpring.controller;
 
 import com.zulvit.userDatabaseSpring.model.Product;
 import com.zulvit.userDatabaseSpring.model.Role;
+import com.zulvit.userDatabaseSpring.model.Status;
 import com.zulvit.userDatabaseSpring.model.User;
 import com.zulvit.userDatabaseSpring.service.AdminService;
 import com.zulvit.userDatabaseSpring.service.PasswordEncoderService;
@@ -67,6 +68,10 @@ public class AdminController {
         rolelist.add(Role.SELLER);
         rolelist.add(Role.STORE_KEEPER);
         model.addAttribute("roleList", rolelist);
+        List<Enum> statusList = new ArrayList<>();
+        statusList.add(Status.ACTIVE);
+        statusList.add(Status.BANNED);
+        model.addAttribute("statusList", statusList);
         return "editUser";
     }
 

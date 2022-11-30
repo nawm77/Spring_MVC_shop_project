@@ -58,8 +58,6 @@ public class SellerController {
 
     @GetMapping("/orders/new-invoice/{id}")
     public String newInvoice(Model model, @PathVariable("id") Long id) {
-//        Invoice invoice = new Invoice();
-//        invoice.setOrder_id(id);
         model.addAttribute("invoice", new Invoice());
         Order order = orderService.findById(id);
         model.addAttribute("order", order);

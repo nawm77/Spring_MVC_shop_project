@@ -15,12 +15,12 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/store")
-public class storeController {
+public class StoreController {
     private final OrderService orderService;
     private final InvoiceService invoiceService;
 
     @Autowired
-    public storeController(OrderService orderService, InvoiceService invoiceService) {
+    public StoreController(OrderService orderService, InvoiceService invoiceService) {
         this.orderService = orderService;
         this.invoiceService = invoiceService;
     }

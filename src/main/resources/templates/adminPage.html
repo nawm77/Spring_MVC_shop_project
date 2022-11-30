@@ -4,41 +4,83 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <style type="text/css">
-        div.activity {
+        body {
+            text-align: center;
+            top: 45%;
+            width: 100%;
+            position: absolute;
+        }
+
+        body {
+            background: url(https://html5book.ru/wp-content/uploads/2015/07/background39.png);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .floating-button {
+            text-decoration: none;
             display: inline-block;
-            color: black;
-            font-style: inherit;
-            font-size: 35px;
+            width: 220px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 45px;
+            margin: 10px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
             text-align: center;
+            letter-spacing: 3px;
+            font-weight: 600;
+            color: #524f4e;
+            background: white;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+            transition: .3s;
         }
-        body{
-            text-align: center;
-        }
-        div{
-            min-height: 100%;
+
+        .floating-button:hover {
+            background: #2EE59D;
+            box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+            color: white;
+            transform: translateY(-7px);
         }
     </style>
     <meta charset="UTF-8">
     <title>Admin page</title>
 </head>
 <body>
-<div class="activity">
-    Choose action
-    <form action="/list/users" method="get" class="button1">
-        <button type="submit">User list</button>
-    </form>
-    <form action="/list/products" method="get" class="button1">
-        <button type="submit">Product list</button>
-    </form>
-    <form action="/seller" method="get" class="button1">
-        <button type="submit">Seller page</button>
-    </form>
-    <form action="/store" method="get" class="button1">
-        <button type="submit">Storekeeper page</button>
-    </form>
-    <form action="/api/v1/auth/logout" method="POST">
-        <button type="submit">Logout</button>
-    </form>
-</div>
+<!--<div class="activity">-->
+<!--    Choose action-->
+<!--    <div class="divblock">-->
+<!--        <form class="floating-button" action="/list/users" method="get">-->
+<!--            <button type="submit">User list</button>-->
+<!--        </form>-->
+<!--        <form class="floating-button" action="/list/products" method="get">-->
+<!--            <button type="submit">Product list</button>-->
+<!--        </form>-->
+<!--        <form class="floating-button" action="/seller" method="get">-->
+<!--            <button type="submit">Seller page</button>-->
+<!--        </form>-->
+<!--        <form class="floating-button" action="/store" method="get">-->
+<!--            <button type="submit">Storekeeper page</button>-->
+<!--        </form>-->
+<!--        <form class="floating-button" action="/api/v1/auth/logout" method="POST">-->
+<!--            <button type="submit">Logout</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+
+<h1>Выберите действие</h1>
+<input class="floating-button" type="button" value="Список пользователей"
+       onclick='location.href="http://localhost:8080/list/users"'>
+<input class="floating-button" type="button" value="Список продуктов"
+       onclick='location.href="http://localhost:8080/list/products"'>
+<input class="floating-button" type="button" value="Страница продавца"
+       onclick='location.href="http://localhost:8080/seller"'>
+<input class="floating-button" type="button" value="Страница кладовщика"
+       onclick='location.href="http://localhost:8080/store"'>
+<!--<input class="floating-button" type="button" value="Выйти"-->
+<!--       onclick='location.href="http://localhost:8080/api/v1/auth/logout"' th:action="POST">-->
+<form action="/api/v1/auth/logout" method="POST">
+    <button class="floating-button" type="submit">Выйти</button>
+</form>
 </body>
 </html>

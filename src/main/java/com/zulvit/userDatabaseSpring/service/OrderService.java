@@ -10,10 +10,12 @@ import java.util.List;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
+    private final InvoiceService invoiceService;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, InvoiceService invoiceService) {
         this.orderRepository = orderRepository;
+        this.invoiceService = invoiceService;
     }
 
     public List<Order> findAll() {
@@ -29,6 +31,7 @@ public class OrderService {
     }
 
     public void deleteById(Long id) {
+        invoiceService.deleteByOrderId(id);
         orderRepository.deleteById(id);
     }
 
